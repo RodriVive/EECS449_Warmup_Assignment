@@ -1,0 +1,4 @@
+/.env
+/DB
+/.venv
+/.jac_mypy_cache
