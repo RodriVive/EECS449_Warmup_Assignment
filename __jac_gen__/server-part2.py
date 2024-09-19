@@ -12,8 +12,11 @@ if _jac_typ.TYPE_CHECKING:
     from rag import RagEngine
 else:
     RagEngine, = __jac_import__(target='rag', base_path=__file__, lng='jac', absorb=False, mdl_alias=None, items={'RagEngine': None})
-llm = Ollama(model_name='llama3.1')
-rag_engine: RagEngine
+if _jac_typ.TYPE_CHECKING:
+    from mtllm.llms import OpenAI
+else:
+    OpenAI, = __jac_import__(target='mtllm.llms', base_path=__file__, lng='py', absorb=False, mdl_alias=None, items={'OpenAI': None})
+llm = OpenAI(model_name='gpt-3.5-turbo')
 
 @_Jac.make_node(on_entry=[], on_exit=[])
 @__jac_dataclass__(eq=False)
@@ -48,5 +51,5 @@ class interact(_Jac.Walker):
         _Jac.report({'response': response})
 if __name__ == '__main__':
     rag_engine = RagEngine()
-    rag_engine.__init__(file_path='DB', chroma_path='chroma')
+    rag_engine.__init__(file_path='docs', chroma_path='chroma')
     print('RagEngine initialized:', rag_engine)

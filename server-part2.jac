@@ -1,8 +1,11 @@
 import:py from mtllm.llms {Ollama}
 import:jac from rag {RagEngine}
 
-glob llm = Ollama(model_name='llama3.1');
-glob rag_engine: RagEngine;
+# glob llm = Ollama(model_name='llama3.1');
+# glob rag_engine: RagEngine;
+
+import:py from mtllm.llms {OpenAI}
+glob llm = OpenAI(model_name='gpt-3.5-turbo');
 
 
 node Session {
@@ -50,6 +53,6 @@ walker interact {
 
 with entry:__main__ {
     rag_engine = RagEngine();
-    rag_engine.init(file_path="DB", chroma_path="chroma");
+    rag_engine.init(file_path="docs", chroma_path="chroma");
     print("RagEngine initialized:", rag_engine);
 }

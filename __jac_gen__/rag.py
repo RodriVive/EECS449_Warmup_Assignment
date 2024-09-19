@@ -32,7 +32,7 @@ else:
 @_Jac.make_obj(on_entry=[], on_exit=[])
 @__jac_dataclass__(eq=False)
 class RagEngine(_Jac.Obj):
-    file_path: str = _Jac.has_instance_default(gen_func=lambda: 'DB')
+    file_path: str = _Jac.has_instance_default(gen_func=lambda: 'docs')
     chroma_path: str = _Jac.has_instance_default(gen_func=lambda: 'chroma')
 
     def __post_init__(self) -> None:

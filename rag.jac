@@ -6,7 +6,7 @@ import: py from langchain_community.embeddings.ollama {OllamaEmbeddings}
 import: py from langchain_community.vectorstores.chroma {Chroma}
 
 obj RagEngine {
-    has file_path: str = "DB";
+    has file_path: str = "docs";
     has chroma_path: str = "chroma";
 
     can postinit {

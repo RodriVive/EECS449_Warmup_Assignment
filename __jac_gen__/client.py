@@ -29,7 +29,7 @@ def bootstrap_frontend(token: str) -> None:
                 st.write(response['reports'][0]['response'])
                 st.session_state.messages.append({'role': 'assistant', 'content': response['reports'][0]['response']})
 INSTANCE_URL = 'http://localhost:8000'
-TEST_USER_EMAIL = 'test@mail.com'
+TEST_USER_EMAIL = 'tes1@mail.com'
 TEST_USER_PASSWORD = 'password'
 response = requests.post(f'{INSTANCE_URL}/user/login', json={'email': TEST_USER_EMAIL, 'password': TEST_USER_PASSWORD})
 if response.status_code != 200:
