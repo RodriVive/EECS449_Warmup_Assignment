@@ -1,5 +1,7 @@
-import:py from mtllm.llms {Ollama}
 import:jac from rag {RagEngine}
+
+# import:py from mtllm.llms {Ollama}
+# glob llm = Ollama(model_name='llama3.1');
 
 import:py from mtllm.llms {OpenAI}
 glob llm = OpenAI(model_name='gpt-3.5-turbo');
